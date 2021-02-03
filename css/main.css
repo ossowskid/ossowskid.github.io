@@ -1,0 +1,65 @@
+body {
+    display: block;
+    background-image: url(../images/bgimg.jpg);
+    background-size: cover;
+    background-repeat:inherit;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+.main {
+    color: white;
+    margin: 15vw 20vh;
+    text-align: center;
+}
+.main h1 {
+    font-size: 5.5em;
+}
+
+.description ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+
+.description ul > li {
+    display: inline;
+    padding-left: 5px;
+    font-size: 2em;
+}
+
+.description ul > i {
+    font-size: 1em;
+    padding-left: 3px;
+}
+
+.links {
+    text-align: center;
+    margin-top: 35px;
+}
+.links ul {
+    list-style-type: none;
+
+}
+.links a {
+    display: inline-block;
+    padding: 15px;
+    color: white;
+    opacity: .7;
+    border: white solid 1px;
+    border-radius: 50%;
+}
+
+.links ul > li {
+    font-size: 4.5em;
+    display: inline;
+    padding: 25px;
+}
+
+.links ul > li > a > i {
+   position: relative;
+    
+}
+
+.links ul li:hover {
+    font-size: 55px;
+    transition: 0.5s;
