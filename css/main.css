@@ -107,10 +107,3 @@ body {
     
 }
 
-.footer {
-    display: flex;
-    flex:auto;
-    height: 5vh;
-    font-size: 2rem;
-    color: white;
-}

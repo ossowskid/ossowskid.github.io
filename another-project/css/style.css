@@ -1,0 +1,324 @@
+* {
+    box-sizing: border-box;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+}
+/* MAIN STYLING */
+
+.navigation {
+    display: inline-flex;
+    justify-content: left;
+    justify-content: flex-end;
+    position:fixed;
+    align-items: center;
+    width: 20vw;
+    height: 100vh;
+    background-color: #312450;
+}
+
+.navigation li {
+    list-style: none;
+    padding-right: 40px;
+    line-height: 60px;
+    text-align: right;
+}
+
+.navigation li:hover {
+    text-decoration: underline;
+}
+
+.navigation a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+    font-size: 13px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+
+.main {
+    display: inline-block;
+    margin-left: 20vw;
+    width: 80vw;
+    background: #604da6;
+}
+
+.main-box {
+    display: flex;
+    padding-left: 60px;
+    justify-content: center;
+    align-items: flex-start;
+    width: 90%;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.main h2 {
+    padding-bottom: 15px;
+    color: white;
+    font-size: 48px;
+}
+
+.main p {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 24px;
+    padding-bottom: 40px;
+}
+
+.main p a {
+    display: inline-block;
+    text-decoration: none;
+    color: gray;
+    font-size: 24px;
+    line-height: 40px;
+    border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
+}
+
+.main p a:hover {
+    color: white;
+    border-bottom: none;
+}
+
+.btn {
+    padding: 20px 45px;
+    background: rgba(255, 255, 255, 0);
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 30px;
+    opacity: .7;
+}
+
+.btn a{
+    text-decoration: none;
+    font-size: 12px;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn:hover {
+    background: rgba( 255, 255, 255, 0.2);
+}
+
+/* // WHOWEARE STYLING // */
+
+.main__bg-1 {
+    background: #5054b5;
+    height: 50vh;
+}
+
+.main__bg-2 {
+    background: #4c4fac;
+    height: 50vh;
+}
+
+.main__bg-3 {
+    background: #494ba3;
+    height: 50vh;
+}
+
+.main-box__withphoto{
+    display: flex;
+    height: 50vh;
+} 
+
+.whoWeAre__pic {
+    display: inline-flex;
+}
+img.whoWeAre__pic{
+    display: flex;
+    height: 100%;
+    width: 25vw;
+    padding-right: 24px;
+}
+.information { 
+    padding-left: 60px;
+    padding-top: 60px;
+    height: auto;
+    width: 75vw;
+}
+
+.information h2 {
+    font-size: 24px;
+}
+
+
+.information > p {
+    padding: 0;
+    line-height: 30px;
+    text-align: justify;
+    color: gray;
+    font-size: 16px;
+    padding-bottom: 60px;
+}
+
+/* //WHAT WE DO STYLING */
+
+
+.whatWeDo {
+    width: 100%;
+    height: auto;
+    background: #b74e91;
+    
+}
+
+.whatWeDo > h2 {
+    font-size: 24px;
+    padding-top: 5%;
+    padding-left: 7%;
+}
+.whatWeDo > p {
+    width: 90%;
+    line-height: 33px;
+    padding-left: 7%;
+    font-size: 16.5px;
+    color: rgba(255,255,255, 0.5);
+}
+
+.column {
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    flex-direction: row;
+    justify-content: center;
+    
+}
+.main__column {
+    padding: 70px 80px 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    max-width: 60%;
+}
+.text__in_column {
+    line-height: 25px;
+}
+
+.text__in_column i {
+    display: inline-flex;
+    font-size: 25px;
+    color: #b74e91;
+    border: 1px solid white;
+    border-radius: 100%;
+    padding: 12px;
+    background: white;
+    margin: 0 auto;
+}
+
+.text__in_column > h5 {
+    display: inline-flex;
+    font-size: 18px;
+    color: whitesmoke;
+    margin: 15px;
+}
+
+.main__column > p {
+    margin-left: 70px;
+    font-size: 16px;
+    line-height: 30px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.whatWeDo .btn {
+    margin: 40px 0 40px 70px;
+}
+
+/* //Get in Touch style// */
+
+.getInTouch {
+    display:flex;
+    flex-wrap: wrap;
+    background: #604da6;
+    width: 100%;
+    border-right: 1px solid rgba( 255, 255, 255, 0.2);
+}
+
+.getInTouch__text {
+    width: 100%;
+    padding: 30px 40px 0px 40px;
+}
+
+.getInTouch__text > h2 {
+    font-size: 24px;
+} 
+
+.getInTouch__text > p {
+    font-size: 16px;
+    line-height: 32px;;
+}
+
+.getInTouch__main {
+    display: flex;
+    width: 100vw;
+    height: auto;
+}
+
+.getInTouch__form {
+    height: auto;
+    width: 65vw;
+    border-right: 1px solid rgba(255,255,255, 0.4) ;
+}
+
+.getInTouch__contact {
+    height: auto;
+    margin-left: 20px;
+    width: 35vw;
+}
+.getInTouch__contact > h5 {
+    font-size: 18px;
+    color: white;
+    line-height: 40px;
+}
+
+.getInTouch__contact > p {
+    width: 40%;
+    line-height: 34px;
+    font-size: 17px;
+}
+.getInTouch__form > p {
+    padding-bottom: 10px;
+}
+
+.name-and-email {
+    display: inline-block;
+    padding-left: 45px;
+}
+.name-and-email > p {
+    padding: 0;
+}
+
+.message {
+    padding-left: 90px;
+}
+.message > p {
+    padding: 20px 0;
+}
+
+
+.getInTouch__form input {
+    display: inline-flex;
+    height: 35px;
+    width: 280px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.getInTouch__form textarea {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    resize: none;
+    height: 200px;
+    width: 95%;
+}
+.getInTouch__main .btn {
+    display: block;
+    margin: 60px 0 60px 80px;
+}
