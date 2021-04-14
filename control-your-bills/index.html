@@ -21,10 +21,12 @@
                 </header>
                 <div class="adding-bills">
                     <form id="id-form">
-                        <label for="billname">Bill name:</label>
-                        <input type="text" pattern="[A-Za-z]{}" id="billname" name="billName" required>
-                        <label for="billname">Bill value:</label>
-                        <input type="number" id="billvalue" name="billValue" required>
+                        <div class="input-value">
+                            <label for="billname">Bill name:</label>
+                            <input type="text" id="billname" name="billName" required>
+                            <label for="billname">Bill value:</label>
+                            <input type="number" id="billvalue" name="billValue" required>
+                        </div>
                         <div class="check-box">
                             <h5>Choose type of your bill:</h5>
                             <input type="radio" name="billtype" value="normal" id="normal-bill" required>
@@ -32,12 +34,13 @@
                             <input type="radio" name="billtype" value="credit" id="credit-bill" required>
                             <p>Credit</p>
                         </div>
-
-                        <button type="submit" id="add-bill">Add to bills list!</button>
-                        <button type="reset" id="remove-bill">Remove all bills from list!</button>
+                        <div class="buttons">
+                            <button type="submit" id="add-bill">Add to bills list!</button>
+                            <button type="reset" id="remove-bill">Remove all bills from list!</button>
+                        </div>
                     </form>
                     <div id="value-counter">
-                        <p>Total value of added bills:</p></br>
+                        <p>Total value of added bills:</p>
                         <div id="value-sum">
 
                         </div>
@@ -50,13 +53,9 @@
                             <div id="bill-name-container">
 
                             </div>
-                        </div>
-                        <div class="bill trash">
-                            <div id="trash-bin">
-
-                            </div>
 
                         </div>
+
                         <div class="bill bill-type">
                             <p>Bill type:</p>
                             <div id="bill-type-container">
@@ -64,7 +63,7 @@
                             </div>
                         </div>
                         <div class="bill value-added">
-                            <p>Bill's Value:</p>
+                            <p>Bill Value:</p>
                             <div id="bill-value-container">
 
                             </div>
