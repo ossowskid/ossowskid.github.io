@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Let me help controll your bills!</title>
+        <script src="https://kit.fontawesome.com/a4b084615b.js" crossorigin="anonymous"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <div class="root">
+            <div class="main">
+                <header class="information">
+                    <h1>Let me help you to controll your bills!</h1>
+                </header>
+                <div class="adding-bills">
+                    <form id="id-form">
+                        <label for="billname">Bill name:</label>
+                        <input type="text" pattern="[A-Za-z]{3}" id="billname" name="billName" required>
+                        <label for="billname">Bill value:</label>
+                        <input type="number" id="billvalue" name="billValue" required>
+                        <div class="check-box">
+                            <h5>Choose type of your bill:</h5>
+                            <input type="radio" name="billtype" value="normal" id="normal-bill" required>
+                            <p>Normal bill</p>
+                            <input type="radio" name="billtype" value="credit" id="credit-bill" required>
+                            <p>Credit</p>
+                        </div>
+
+                        <button type="submit" id="add-bill">Add to bills list!</button>
+                        <button type="reset" id="remove-bill">Remove all bills from list!</button>
+                    </form>
+                    <div id="value-counter">
+                        <p>Total value of added bills:</p></br>
+                        <div id="value-sum">
+
+                        </div>
+                    </div>
+                </div>
+                <section class="main-section">
+                    <div class="bills-box">
+                        <div class="bill bill-added">
+                            <p>Bill name:</p>
+                            <div id="bill-name-container">
+
+                            </div>
+                        </div>
+                        <div class="bill trash">
+                            <div id="trash-bin">
+
+                            </div>
+
+                        </div>
+                        <div class="bill bill-type">
+                            <p>Bill type:</p>
+                            <div id="bill-type-container">
+
+                            </div>
+                        </div>
+                        <div class="bill value-added">
+                            <p>Bill's Value:</p>
+                            <div id="bill-value-container">
+
+                            </div>
+
+                        </div>
+
+
+
+                </section>
+            </div>
+
+            <footer class="footer">
+                <p>&#169 by Dawid Ossowski</p>
+
+            </footer>
+        </div>
+
+
+
+
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-app.js"></script>
+
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+             https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/8.3.3/firebase-analytics.js"></script>
+
+        <script src="script.js"></script>
+    </body>
+
+</html>
