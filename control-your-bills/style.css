@@ -203,6 +203,7 @@ label {
 
 .footer {
     margin: 0 auto;
+    height: 20px;
     width: 100vw;
     background: #FDCFF3;
     /* border-left: 1px solid #070707;
