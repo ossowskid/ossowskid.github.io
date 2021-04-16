@@ -39,6 +39,12 @@ creditCheckbox.addEventListener("change", inputHandler);
 function inputHandler(event) {
 	nameAndAmount[event.target.name] = event.target.value;
 }
+valueSum.innerHTML = "0zł";
+if (valueSum.innerHTML === "0zł") {
+	const comment = document.createElement("div");
+	comment.innerHTML = "Great value! 😎";
+	valueSum.appendChild(comment);
+}
 
 function getValues() {
 	return fetch(
@@ -50,101 +56,116 @@ getValues().then((data) => {
 		id: key,
 		...data[key],
 	}));
+	valueSum.innerHTML = "0zł";
+	if (valueSum.innerHTML === "0zł") {
+		const comment = document.createElement("div");
+		comment.innerHTML = "Great value! 😎";
+		valueSum.appendChild(comment);
+	}
 
 	formatedData.forEach((item, id) => {
-		const table = document.createElement("tr");
+		const billNameTable = document.createElement("tr");
 		const nameAdded = document.createElement("td");
 		const valueAdded = document.createElement("td");
 		const billCheckboxAdded = document.createElement("td");
-		const trashBin = document.createElement("td");
+		const trashBin = document.createElement("div");
 
+		billNameTable.classList.add("bill-name-added");
 		nameAdded.classList.add("bill-name-added");
-		trashBin.classList.add("bill-name-added");
-		trashBin.classList.add("trash-icon");
-		trashBin.classList.add("trash-icon:hover");
 		valueAdded.classList.add("bill-name-added");
 		billCheckboxAdded.classList.add("bill-name-added");
+		trashBin.classList.add("trash-icon");
+		trashBin.classList.add("trash-icon:hover");
 
 		nameAdded.innerText = item.billname;
-		valueAdded.innerText = item.billvalue + `zł`;
 		billCheckboxAdded.innerText = item.billtype;
+		valueAdded.innerText = `${item.billvalue}zł`;
 
 		billNameContainer.appendChild(nameAdded);
-		//  nameAdded.appendChild(trashBin);
-		billValueContainer.appendChild(valueAdded);
 		checbkboxContainer.appendChild(billCheckboxAdded);
+		billValueContainer.appendChild(billNameTable);
+		billNameTable.appendChild(valueAdded);
+		billNameTable.appendChild(trashBin);
 
-		// const nameAdded = document.createElement('p');
-		// const valueAdded = document.createElement('div');
-		// const billCheckboxAdded = document.createElement('div');
-		// const trashIconAdded = document.createElement('p');
-		// trashIconAdded.classList.add('bill-name-added')
-		// trashIconAdded.classList.add('trash-icon');
-		// trashIconAdded.classList.add('trash-icon:hover');
-
-		//  trashIconAdded.addEventListener('click', () => {
-		//      fetch(`https://controlbillapi-default-rtdb.europe-west1.firebasedatabase.app/bills/${item.id}.json`, {
-		//         method: `DELETE`,
-		//     }).then(() => window.location.reload())
-		// })
-
-		// nameAdded.classList.add('bill-name-added');
-
-		// valueAdded.classList.add('bill-name-added');
-		// billCheckboxAdded.classList.add('bill-name-added');
-
-		// nameAdded.innerText = item.billname;
-		// valueAdded.innerText = item.billvalue + 'zł';
-		// billCheckboxAdded.innerText = item.billtype;
-
-		// billNameContainer.appendChild(trashIconAdded);
-		// trashIconAdded.appendChild(nameAdded);
-		// billValueContainer.appendChild(valueAdded);
-		// checbkboxContainer.appendChild(billCheckboxAdded);
+		trashBin.addEventListener("click", () => {
+			fetch(
+				`https://controlbillapi-default-rtdb.europe-west1.firebasedatabase.app/bills/${item.id}.json`,
+				{
+					method: `DELETE`,
+				}
+			).then(() => window.location.reload());
+		});
 	});
 
 	const valueFromDatabase = formatedData.reduce(
 		(acc, item) => acc + Number(item.billvalue),
 		0
 	);
-	valueSum.innerHTML = valueFromDatabase + "zł";
+	valueSum.innerHTML = `${valueFromDatabase}zł`;
+
+	if (valueFromDatabase >= 5000) {
+		const comment = document.createElement("div");
+		comment.innerHTML = "Your bills are too high! 😭";
+		valueSum.appendChild(comment);
+	} else if (valueFromDatabase >= 1) {
+		const comment = document.createElement("div");
+		comment.innerHTML = "Nice! 👌";
+		valueSum.appendChild(comment);
+	}
 });
+
 getValues();
 
 idForm.addEventListener("submit", (e) => {
 	e.preventDefault();
+	const billNameTable = document.createElement("tr");
+	const nameAdded = document.createElement("td");
+	const valueAdded = document.createElement("td");
+	const billCheckboxAdded = document.createElement("td");
+	const trashBin = document.createElement("div");
 
-	// const trashIconAdded = document.createElement('div');
-	// trashIconAdded.classList.add('bill-name-added');
-	// trashIconAdded.classList.add('trash-icon');
-	// trashIconAdded.classList.add('trash-icon:hover');
-	// trashBin.append(trashIconAdded);
-
-	const nameAdded = document.createElement("div");
+	billNameTable.classList.add("bill-name-added");
 	nameAdded.classList.add("bill-name-added");
+	valueAdded.classList.add("bill-name-added");
+	billCheckboxAdded.classList.add("bill-name-added");
+	trashBin.classList.add("trash-icon");
+	trashBin.classList.add("trash-icon:hover");
 
 	nameAdded.innerText = nameAndAmount.billName;
-	billNameContainer.append(nameAdded);
-
-	const valueAdded = document.createElement("div");
-	valueAdded.classList.add("bill-name-added");
-	valueAdded.innerText = nameAndAmount.billValue + "zł";
-	billValueContainer.append(valueAdded);
+	billCheckboxAdded.innerText = nameAndAmount.billtype;
+	valueAdded.innerText = `${nameAndAmount.billValue}zł`;
 	amount.push(nameAndAmount.billValue);
 
-	const billCheckboxAdded = document.createElement("div");
-	billCheckboxAdded.classList.add("bill-name-added");
-	billCheckboxAdded.innerText = nameAndAmount.billtype;
-	checbkboxContainer.append(billCheckboxAdded);
+	billNameContainer.appendChild(nameAdded);
+	checbkboxContainer.appendChild(billCheckboxAdded);
+	billValueContainer.appendChild(billNameTable);
+	billNameTable.appendChild(valueAdded);
+	billNameTable.appendChild(trashBin);
 
+	valueSum.innerHTML = "0zł";
+	if (valueSum.innerHTML === "0zł") {
+		const comment = document.createElement("div");
+		comment.innerHTML = "You didn't add nothing here 😎";
+		valueSum.appendChild(comment);
+	}
 	function sumValue() {
 		const numberArray = amount.map(Number);
 		const values = numberArray.reduce(function (acc, val) {
 			return acc + val;
 		}, 0);
-		valueSum.innerHTML = values + "zł";
+		valueSum.innerHTML = `${values}zł`;
 	}
 	sumValue();
+
+	if (valueFromDatabase >= 5000) {
+		const comment = document.createElement("div");
+		comment.innerHTML = "Your bills are too high! 😭";
+		valueSum.appendChild(comment);
+	} else if (valueFromDatabase >= 1) {
+		const comment = document.createElement("div");
+		comment.innerHTML = "Nice! 👌";
+		valueSum.appendChild(comment);
+	}
 
 	function addValues() {
 		fetch(

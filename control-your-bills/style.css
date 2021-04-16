@@ -7,13 +7,11 @@
 }
 
 .root {
-	/* background: #DE89BE; */
 	height: 100vh;
 }
 
 .main {
 	margin: 0 auto;
-	/* border: 1px solid #070707; */
 	width: 100vw;
 }
 
@@ -69,7 +67,6 @@
 .value-added {
 	display: flex;
 	position: relative;
-	/* height: 100%; */
 	flex-direction: column;
 }
 
@@ -92,13 +89,12 @@
 .adding-bills {
 	display: flex;
 	align-items: center;
-	min-height: 20vh;
+	min-height: 25vh;
 	background: #fdcff3;
 	border-bottom: 1px solid #070707;
 }
 #id-form {
 	display: flex;
-	/* justify-content: center; */
 	width: 60vw;
 	flex-wrap: wrap;
 	align-items: center;
@@ -106,6 +102,7 @@
 	color: #40434e;
 }
 .input-value {
+	font-weight: bold;
 	display: flex;
 	flex-wrap: nowrap;
 	justify-content: center;
@@ -115,6 +112,7 @@ label {
 	font-size: 20px;
 }
 #billname {
+	display: block;
 	text-align: center;
 	max-height: 40px;
 	width: 150px;
@@ -126,6 +124,7 @@ label {
 }
 #billvalue {
 	font-size: 20px;
+	display: block;
 	width: 150px;
 	max-height: 40px;
 	text-align: center;
@@ -143,7 +142,6 @@ label {
 
 #add-bill {
 	font-size: 18px;
-	/* height: 45px; */
 	color: #40434e;
 	padding: 10px 10px;
 	border: none;
@@ -159,7 +157,6 @@ label {
 	background: #c297b8;
 	font-size: 18px;
 	padding: 10px 10px;
-	/* height: 45px; */
 	border: none;
 	cursor: pointer;
 }
@@ -169,24 +166,22 @@ label {
 }
 
 .bill-name-added {
-	display: block;
-	/* flex-direction: row; */
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
 	background: #fdcff3;
 	font-size: 30px;
 }
-.trash-icon::after {
-	/* padding-left: 20vw; */
-	/* display: inline-flex; */
-	/* flex-direction: column; */
-	/* text-align: right; */
-	color: #40434e;
-	font-family: "Font Awesome 5 Free";
-	font-weight: 200;
-	font-size: 20px;
-	content: "\f2ed";
+.trash-icon {
+	background-image: url(./img/garbage.png);
+	background-size: cover;
+	height: 35px;
+	width: 30px;
 }
-.trash-icon:hover::after {
-	color: red;
+.trash-icon:hover {
+	background-image: url(./img/garbage-red.png);
 	cursor: pointer;
 }
 
@@ -195,29 +190,26 @@ label {
 	flex-direction: row;
 	display: block;
 	text-align: center;
-	align-items: center;
 }
 #value-counter > p {
+	font-weight: bold;
 	text-align: center;
 	margin-right: 10px;
 	font-size: 20px;
 	color: #40434e;
 }
 .check-box {
-	display: flex;
-	align-items: center;
+	text-align: center;
 	width: 100%;
 	font-size: 20px;
-	display: flex;
 	padding: 20px;
-	justify-content: center;
 }
 .check-box h5 {
 	padding-right: 10px;
 }
 .check-box p {
-	padding-left: 10px;
-	padding-right: 10px;
+	font-weight: bold;
+	display: inline-flex;
 }
 #normal-bill {
 	margin-top: 5px;
@@ -235,14 +227,77 @@ label {
 	margin: 0 auto;
 	width: 100vw;
 	background: #fdcff3;
-	/* border-left: 1px solid #070707;
-    border-right: 1px solid #070707; */
+	border-top: 1px solid black;
 }
 
 .footer p {
 	padding-top: 10px;
-	text-align: right;
+	text-align: center;
 	padding-right: 40px;
 	color: #40434e;
 	font-size: 16px;
 }
+
+@media only screen and (max-width: 620px) {
+	p {
+		font-size: 15px;
+	}
+	.information {
+		padding-left: 25px;
+	}
+	.information h1 {
+		width: 50vw;
+	}
+	.adding-bills {
+		padding-top: 20px;
+	}
+	.input-value {
+		display: block;
+		margin-left: 50px;
+	}
+	.check-box {
+		width: 90%;
+	}
+	.buttons {
+		width: 80%;
+		height: auto;
+	}
+	#id-form {
+		width: 55vw;
+	}
+	#add-bill {
+		margin-bottom: 5px;
+	}
+	#remove-bill {
+		margin-bottom: 5px;
+	}
+	#value-counter {
+		width: 45vw;
+	}
+}
+
+@media only screen and (max-width: 450px) {
+	.information {
+		background-size: 80vw;
+	}
+	.bill > p {
+		font-size: 15px;
+	}
+	#add-bill {
+		margin-left: 20px;
+	}
+	#remove-bill {
+		margin-left: 25px;
+	}
+	.bills-box {
+		min-height: 25vh;
+	}
+	.bill-name-added {
+		font-size: 15px;
+	}
+	.trash-icon {
+		background-size: cover;
+		height: 18px;
+		width: 18px;
+	}
+} ;
