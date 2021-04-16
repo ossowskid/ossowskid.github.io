@@ -142,30 +142,23 @@ idForm.addEventListener("submit", (e) => {
 	billNameTable.appendChild(valueAdded);
 	billNameTable.appendChild(trashBin);
 
-	valueSum.innerHTML = "0zł";
-	if (valueSum.innerHTML === "0zł") {
-		const comment = document.createElement("div");
-		comment.innerHTML = "You didn't add nothing here 😎";
-		valueSum.appendChild(comment);
-	}
 	function sumValue() {
 		const numberArray = amount.map(Number);
 		const values = numberArray.reduce(function (acc, val) {
 			return acc + val;
 		}, 0);
 		valueSum.innerHTML = `${values}zł`;
+		if (values >= 5000) {
+			const comment = document.createElement("div");
+			comment.innerHTML = "Your bills are too high! 😭";
+			valueSum.appendChild(comment);
+		} else if (values >= 1) {
+			const comment = document.createElement("div");
+			comment.innerHTML = "Nice! 👌";
+			valueSum.appendChild(comment);
+		}
 	}
 	sumValue();
-
-	if (valueSum >= 5000) {
-		const comment = document.createElement("div");
-		comment.innerHTML = "Your bills are too high! 😭";
-		valueSum.appendChild(comment);
-	} else if (valueSum >= 1) {
-		const comment = document.createElement("div");
-		comment.innerHTML = "Nice! 👌";
-		valueSum.appendChild(comment);
-	}
 
 	function addValues() {
 		fetch(
