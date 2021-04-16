@@ -157,11 +157,11 @@ idForm.addEventListener("submit", (e) => {
 	}
 	sumValue();
 
-	if (valueFromDatabase >= 5000) {
+	if (valueSum >= 5000) {
 		const comment = document.createElement("div");
 		comment.innerHTML = "Your bills are too high! 😭";
 		valueSum.appendChild(comment);
-	} else if (valueFromDatabase >= 1) {
+	} else if (valueSum >= 1) {
 		const comment = document.createElement("div");
 		comment.innerHTML = "Nice! 👌";
 		valueSum.appendChild(comment);
